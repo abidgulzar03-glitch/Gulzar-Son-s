@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  /* position: sticky; */
+  top: 0;
+  background: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-left a,
+.nav-right a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #a8842f;
+}
+
+/* Center brand */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 30px;
+  z-index: 1001;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    z-index 0s 0.3s;
+}
+
+.monogram {
+  display: flex;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 52px;
+  line-height: 1;
+  color: #b08d3f;
+  background: linear-gradient(180deg, #d9b866, #a17c2e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.monogram .g {
+  margin-right: -6px;
+}
+
+.brand-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #b08d3f;
+  margin-top: 2px;
+}
+
+.brand-tagline {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Hamburger toggle - hidden on desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2.5px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background: #a8842f;
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background: #a8842f;
+}
+
+/* Mobile nav panel */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 78%;
+  max-width: 340px;
+  height: 100vh;
+  background: #fdfaf3;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  transition: right 0.35s ease;
+  z-index: 1000;
+  padding-top: 100px;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 32px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobile-nav a:hover {
+  color: #a8842f;
+  padding-left: 8px;
+}
+
+/* Overlay backdrop */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+  z-index: 999;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive breakpoint */
+@media (max-width: 860px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    order: 2; /* Right side */
+  }
+
+  .brand {
+    position: static; /* Remove absolute center */
+    transform: none;
+    padding: 0;
+    order: 1; /* Left side */
+    align-items: flex-start;
+  }
+
+  .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .monogram {
+    font-size: 38px;
+  }
+
+  .brand-name {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  .brand-tagline {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+}

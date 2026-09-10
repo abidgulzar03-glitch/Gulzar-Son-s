@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+.hero-banner-section {
+  position: relative;
+  min-height: 122vh;
+  width: 100%;
+  background-image: url("/HerobnnnerBgimg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Dark scrim over the background photo so white text/logo stay legible */
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 12, 10, 0.55);
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.hero-banner-monogram-box {
+  width: 210px;
+  height: 210px;
+  border: 1.5px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.hero-banner-monogram {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 78px;
+  letter-spacing: 2px;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-banner-tagline {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 22px;
+}
+
+.hero-banner-locations {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+.hero-banner-divider {
+  color: #c9a24a;
+  margin: 0 6px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-banner-section {
+    min-height: 80vh;
+  }
+
+  .hero-banner-monogram-box {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+  }
+
+  .hero-banner-monogram {
+    font-size: 54px;
+  }
+
+  .hero-banner-tagline {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .hero-banner-locations {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner-tagline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero-banner-tagline .hero-banner-divider {
+    display: none;
+  }
+
+  .hero-banner-locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 8px;
+  }
+}

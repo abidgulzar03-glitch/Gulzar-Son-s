@@ -1,0 +1,82 @@
+/* ===== Portfolio Gallery Page ===== */
+
+.portfolio-gallery-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5efe6;
+  padding: 140px 20px 80px;
+}
+
+.gallery-container {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 46px;
+  color: #1f1f1f;
+  margin-bottom: 12px;
+}
+
+.gallery-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 50px;
+  font-size: 17px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.gallery-card {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.35s;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-gallery-page {
+    padding-top: 110px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-title {
+    font-size: 30px;
+  }
+
+  .gallery-subtitle {
+    font-size: 15px;
+  }
+}

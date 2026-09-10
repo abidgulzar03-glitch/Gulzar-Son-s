@@ -1,0 +1,23 @@
+:root {
+  --color-gold: #a8823b;
+  --color-gold-light: #c9a24b;
+  --color-gold-dark: #8a6a2e;
+  --color-text: #1a1a1a;
+  --color-tagline: #8c8c8c;
+  --color-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+}
