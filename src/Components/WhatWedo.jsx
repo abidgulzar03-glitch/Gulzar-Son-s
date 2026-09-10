@@ -1,4 +1,5 @@
-import "./WhatWeDo.css";
+import { Link } from "react-router-dom";
+import "./WhatWedo.css";
 
 function WhatWeDo() {
   return (
@@ -21,11 +22,10 @@ function WhatWeDo() {
           <h2 className="wwd-heading">What We Do</h2>
 
           <p className="wwd-text">
-            With over 34 years of hands-on experience, Gulzar &amp; Son's works
-            with quality hardwoods, plywood and veneers to bring superior
+            With over 34 years of hands-on experience, Gulzar & Son's works with
+            quality hardwoods, plywood and veneers to bring superior
             craftsmanship and a lasting finish to every home and shop we work
-            on. Our team is capable of matching any existing finish or creating
-            exactly what our clients envision.
+            on.
           </p>
 
           <ul className="wwd-list">
@@ -34,14 +34,14 @@ function WhatWeDo() {
             <li>Wall Paneling</li>
             <li>False Ceiling</li>
             <li>Flooring</li>
-            <li>Doors &amp; Windows</li>
+            <li>Doors & Windows</li>
             <li>Custom Furniture</li>
-            <li>Shop Design &amp; Fit-outs</li>
+            <li>Shop Design & Fit-outs</li>
           </ul>
 
-          <a href="#services" className="wwd-cta">
+          <Link to="/services" className="wwd-cta">
             Services
-          </a>
+          </Link>
         </div>
       </div>
     </section>
