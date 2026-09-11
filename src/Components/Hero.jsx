@@ -3,13 +3,13 @@ import "./Hero.css";
 
 const slides = [
   {
-    image: "/herokitchen1.jpg",
+    image: "/herokitchen2.jpg",
     title: "Crafted Kitchens,",
     highlight: "Built to Last",
     subtitle: "Custom cabinetry and woodwork made for the way you live.",
   },
   {
-    image: "/herokitchen2.jpg",
+    image: "/herokitchen1.jpg",
     title: "Timeless Design,",
     highlight: "Modern Craft",
     subtitle: "Where classic joinery meets contemporary style.",

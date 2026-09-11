@@ -1,0 +1,145 @@
+.contact-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 80px;
+}
+
+.contact-section__overlay {
+  width: 100%;
+  background: rgba(20, 14, 8, 0.45);
+  padding: 40px 0 80px;
+}
+
+.contact-section__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.contact-section__title {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.contact-section__subtitle {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 40px;
+}
+
+.contact-section__subtitle a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contact-form {
+  text-align: left;
+}
+
+.contact-form__group-label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.contact-form__row {
+  display: flex;
+  gap: 16px;
+}
+
+.contact-form__row .contact-form__field {
+  flex: 1;
+}
+
+.contact-form__field {
+  margin-bottom: 20px;
+}
+
+.contact-form__field label {
+  display: block;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.contact-form__field label span {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  width: 100%;
+  border: none;
+  background: #fff;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.contact-form__field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form__submit {
+  display: block;
+  margin: 32px auto 0;
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff;
+  letter-spacing: 0.15em;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-form__submit:hover {
+  background: #fff;
+  color: #222;
+}
+
+.contact-form__status {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.contact-form__status--error {
+  color: #ffb4b4;
+}
+
+.contact-form__status--success {
+  color: #b9f6ca;
+}
+
+@media (max-width: 600px) {
+  .contact-form__row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-section__title {
+    font-size: 28px;
+    letter-spacing: 0.2em;
+  }
+}

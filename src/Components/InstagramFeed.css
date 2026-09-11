@@ -1,0 +1,102 @@
+.ig-feed {
+  padding: 48px 24px 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.ig-feed__header {
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.ig-feed__name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #b9975b; /* muted gold, matches reference */
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+.ig-feed__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #b9975b;
+  border-radius: 12px;
+  color: #b9975b;
+  transition: opacity 0.15s ease;
+}
+
+.ig-feed__icon:hover {
+  opacity: 0.75;
+}
+
+.ig-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.ig-feed__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.ig-feed__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.ig-feed__tile:hover img {
+  transform: scale(1.03);
+}
+
+.ig-feed__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ig-feed__badge {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .ig-feed__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ig-feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

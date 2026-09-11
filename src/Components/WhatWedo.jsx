@@ -8,12 +8,12 @@ function WhatWeDo() {
         <div className="wwd-images">
           <img
             className="wwd-image wwd-image-back"
-            src="/Whatwedoi1mg.jpg"
+            src="/Whatwedoimg.png"
             alt="Wood-paneled hallway with warm lighting"
           />
           <img
             className="wwd-image wwd-image-front"
-            src="/Whatwedoi2mg.jpg"
+            src="/Whatwedoi1mg.jpg"
             alt="Custom glass and wood shower enclosure"
           />
         </div>

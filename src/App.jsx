@@ -7,9 +7,37 @@ import AboutSection from "./Components/AboutSection";
 import WhatWeDo from "./Components/WhatWedo";
 import HeroBanner from "./Components/HeroBanner";
 import PortfolioSection from "./Components/PortfolioSection";
-
-// Import Portfolio Page
+import InstagramFeed from "./Components/InstagramFeed";
+import ContactSection from "./Components/ContactSection";
 import Portfolio from "./Pages/Portfolio";
+
+const instagramPosts = [
+  {
+    image: "/images/insta1.jpg",
+    url: "https://www.instagram.com/p/Db5HbEVJajo/?stkn=MzRlODBiNWFlZA==",
+    username: "i_am_zahidgulzar",
+  },
+  {
+    image: "/images/insta2.jpg",
+    url: "https://www.instagram.com/i_am_zahidgulzar/",
+  },
+  {
+    image: "/images/insta3.jpg",
+    url: "https://www.instagram.com/i_am_zahidgulzar/",
+  },
+  {
+    image: "/images/insta4.jpg",
+    url: "https://www.instagram.com/i_am_zahidgulzar/",
+  },
+  {
+    image: "/images/insta5.jpg",
+    url: "https://www.instagram.com/i_am_zahidgulzar/",
+  },
+  {
+    image: "/images/insta6.jpg",
+    url: "https://www.instagram.com/i_am_zahidgulzar/",
+  },
+];
 
 function Home() {
   return (
@@ -19,6 +47,16 @@ function Home() {
       <WhatWeDo />
       <HeroBanner />
       <PortfolioSection />
+      <InstagramFeed
+        name="Gulzar&Son's"
+        instagramUrl="https://www.instagram.com/i_am_zahidgulzar/"
+        posts={instagramPosts}
+      />
+      <ContactSection
+        name="Gulzar&Son's"
+        email="abidgulzar03@gmail.com"
+        backgroundImage="/images/contact-bg.jpg"
+      />
     </>
   );
 }
