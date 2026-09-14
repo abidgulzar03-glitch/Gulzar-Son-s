@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Components
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import WhatWeDo from "./Components/WhatWedo";
@@ -13,11 +14,16 @@ import InstagramFeed from "./Components/InstagramFeed";
 import ContactSection from "./Components/ContactSection";
 import BottomHeader from "./Components/BottomHeader";
 import Footer from "./Components/Footer";
+import WhatsAppButton from "./Components/WhatsAppButton";
+
+// Pages
 import Portfolio from "./Pages/Portfolio";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
 import Gallery from "./Pages/Gallery";
+import Contact from "./Pages/Contact";
 
+// Instagram posts
 const instagramPosts = [
   {
     image: "/images/insta1.jpg",
@@ -46,18 +52,27 @@ const instagramPosts = [
   },
 ];
 
+// ================================
+// HOME PAGE
+// ================================
+
 function Home() {
   return (
     <>
       <Hero />
+
       <WhatWeDo />
+
       <HeroBanner />
+
       <PortfolioSection />
+
       <InstagramFeed
         name="Gulzar&Son's"
         instagramUrl="https://www.instagram.com/i_am_zahidgulzar/"
         posts={instagramPosts}
       />
+
       <ContactSection
         name="Gulzar&Son's"
         email="abidgulzar03@gmail.com"
@@ -67,28 +82,61 @@ function Home() {
   );
 }
 
+// ================================
+// APP
+// ================================
+
 function App() {
+  // Initialize AOS
   useEffect(() => {
     AOS.init({
       duration: 700,
       once: true,
       offset: 60,
+      easing: "ease-out-cubic",
     });
+
+    // Refresh AOS after page loads
+    setTimeout(() => {
+      AOS.refresh();
+    }, 300);
   }, []);
 
   return (
     <BrowserRouter>
+      {/* ================================
+          NAVBAR
+      ================================= */}
       <Navbar />
 
+      {/* ================================
+          PAGES / ROUTES
+      ================================= */}
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/about" element={<About />} />
+
         <Route path="/services" element={<Services />} />
+
         <Route path="/portfolio" element={<Portfolio />} />
+
         <Route path="/gallery" element={<Gallery />} />
+
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
+      {/* ================================
+          FIXED WHATSAPP BUTTON
+      ================================= */}
+      <WhatsAppButton />
+
+      {/* ================================
+          BOTTOM HEADER
+      ================================= */}
       <BottomHeader monogram="GS" />
+
+    
       <Footer monogram="GS" brandName="Gulzar & Son's" />
     </BrowserRouter>
   );

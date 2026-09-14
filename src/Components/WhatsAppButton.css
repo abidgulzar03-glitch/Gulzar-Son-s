@@ -1,0 +1,210 @@
+/* =========================================
+   SOCIAL BUTTON CONTAINER
+========================================= */
+
+.social-buttons {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  z-index: 99999;
+}
+
+/* =========================================
+   COMMON SOCIAL BUTTON
+========================================= */
+
+.social-button {
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+.social-button:hover {
+  transform: scale(1.1);
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.social-icon {
+  width: 31px;
+  height: 31px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* =========================================
+   INSTAGRAM
+========================================= */
+
+.instagram-button {
+  background: #e1306c;
+}
+
+/* Instagram pulse */
+
+.instagram-pulse {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background: #e1306c;
+
+  z-index: -1;
+
+  animation: instagramPulse 2s infinite;
+}
+
+@keyframes instagramPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+.whatsapp-button {
+  background: #25d366;
+}
+
+/* WhatsApp pulse */
+
+.whatsapp-pulse {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  z-index: -1;
+
+  animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .social-buttons {
+    right: 18px;
+    bottom: 18px;
+
+    gap: 10px;
+  }
+
+  .social-button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .social-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .social-buttons {
+    right: 15px;
+    bottom: 15px;
+
+    gap: 9px;
+  }
+
+  .social-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .social-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .instagram-pulse,
+  .whatsapp-pulse {
+    animation: none;
+  }
+
+  .social-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,144 @@
+.contact-info {
+  --wood: #6b4226;
+  --wood-dark: #3f2a1a;
+  --cream: #f6f1ea;
+  --ink: #201a14;
+  --muted: #6f665c;
+  --gold: #b9975b;
+
+  background: var(--wood-dark);
+  padding: 150px 24px 80px;
+  color: var(--cream);
+}
+
+.contact-info__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-info__eyebrow {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.contact-info__inner h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.contact-info__inner h1 span {
+  color: var(--gold);
+}
+
+.contact-info__lead {
+  max-width: 60ch;
+  margin: 0 auto 48px;
+  color: #d9cfc2;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Contact detail cards */
+.contact-info__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 56px;
+}
+
+.contact-info__card {
+  background: rgba(255, 255, 255, 0.338);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 26px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+a.contact-info__card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.contact-info__card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.contact-info__card-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contact-info__card-value {
+  font-size: 0.95rem;
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+/* Services strip */
+.contact-info__services {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 40px;
+}
+
+.contact-info__services-label {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.contact-info__services-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info__services-list li {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(217, 199, 160, 0.4);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 30px;
+}
+
+@media (max-width: 900px) {
+  .contact-info {
+    padding: 120px 20px 60px;
+  }
+
+  .contact-info__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-info__grid {
+    grid-template-columns: 1fr;
+  }
+}
