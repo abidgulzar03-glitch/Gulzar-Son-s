@@ -1,108 +1,93 @@
-// import React from "react";
+import { useEffect } from "react";
 import "./InstagramFeed.css";
 
-/**
- * InstagramFeed
- * A static "as seen on Instagram" section: name, Instagram icon linking to
- * the profile, and a responsive row of photo/video tiles.
- *
- * Usage:
- * <InstagramFeed
- *   name="Robert Carpentry"
- *   instagramUrl="https://instagram.com/yourprofile"
- *   posts={[
- *     { image: "/images/insta1.jpg", url: "https://instagram.com/p/xxxx", username: "masinteriordesign", isVideo: true },
- *     { image: "/images/insta2.jpg", url: "https://instagram.com/p/yyyy" },
- *     ...
- *   ]}
- * />
- *
- * Drop your own images into /public or /src/assets and reference them,
- * or later swap `posts` for data fetched from Meta's Graph API if you
- * want it to auto-update.
- */
-export default function InstagramFeed({ name, instagramUrl, posts = [] }) {
+export default function InstagramFeed() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => window.instgrm?.Embeds?.process();
+
+    return () => document.body.removeChild(script);
+  }, []);
+
   return (
     <section className="ig-feed">
       <div className="ig-feed__header">
-        <h2 className="ig-feed__name">{name}</h2>
+        <div className="ig-feed__logo">
+          <InstagramIcon />
+        </div>
+
+        <p className="ig-feed__label">FOLLOW US ON INSTAGRAM</p>
+
+        <h2 className="ig-feed__name">@i_am_zahidgulzar</h2>
+
         <a
-          href={instagramUrl}
+          href="https://www.instagram.com/i_am_zahidgulzar/"
           target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${name} on Instagram`}
-          className="ig-feed__icon"
+          rel="noreferrer"
+          className="ig-feed__btn"
         >
-          <InstagramGlyph />
+          View Profile
         </a>
       </div>
 
       <div className="ig-feed__grid">
-        {posts.map((post, i) => (
-          <a
-            key={i}
-            href={post.url || instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ig-feed__tile"
-          >
-            <img
-              src={post.image}
-              alt={post.alt || `${name} Instagram post ${i + 1}`}
-            />
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DcBktiSJ0Nc/"
+          data-instgrm-version="14"
+        />
 
-            {post.isVideo && (
-              <span className="ig-feed__play">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            )}
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DbyH3vdJxSJ/"
+          data-instgrm-version="14"
+        />
 
-            {post.username && (
-              <span className="ig-feed__badge">
-                <InstagramGlyphSmall />
-                {post.username}
-              </span>
-            )}
-          </a>
-        ))}
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/Dbn43lTJDYd/"
+          data-instgrm-version="14"
+        />
+
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DbUcI6BJ-Q2/"
+          data-instgrm-version="14"
+        />
+
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DaS6c_6pHf2/"
+          data-instgrm-version="14"
+        />
+
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/Dcv2G8UpFPi/"
+          data-instgrm-version="14"
+        />
       </div>
     </section>
   );
 }
 
-function InstagramGlyph() {
+function InstagramIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="28"
-      height="28"
+      width="34"
+      height="34"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="1.8"
     >
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
-      <circle cx="12" cy="12" r="4.6" />
-      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function InstagramGlyphSmall() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="12"
-      height="12"
-      fill="none"
-      stroke="#fff"
-      strokeWidth="2"
-      style={{ marginRight: 4 }}
-    >
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
-      <circle cx="12" cy="12" r="4.6" />
-      <circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none" />
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   );
 }

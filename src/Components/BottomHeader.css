@@ -1,0 +1,142 @@
+.bottom-header {
+  width: 100%;
+  background: #ffffff;
+}
+
+.bottom-header__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px 60px;
+}
+
+.bottom-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.bottom-header__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 6px;
+}
+
+.bottom-header__nav-item {
+  color: #6b6b6b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bottom-header__divider {
+  color: #b8b8b8;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.bottom-header__text {
+  margin: 0;
+  color: #9a9a9a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+.bottom-header__mark {
+  flex-shrink: 0;
+  width: 99px;
+  height: 99px;
+  border: 3px solid #b9975b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+}
+
+.bottom-header__mark-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  color: #b9975b;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
+  .bottom-header__inner {
+    gap: 24px;
+    padding: 40px 32px;
+  }
+
+  .bottom-header__nav-item {
+    font-size: 12px;
+  }
+
+  .bottom-header__divider {
+    margin-left: 6px;
+  }
+
+  .bottom-header__nav {
+    column-gap: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bottom-header__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 32px 20px;
+  }
+
+  .bottom-header__content {
+    align-items: center;
+    order: 2;
+  }
+
+  .bottom-header__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+    column-gap: 20px;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .bottom-header__nav .bottom-header__divider {
+    display: none;
+  }
+
+  .bottom-header__text {
+    white-space: normal;
+  }
+
+  .bottom-header__mark {
+    order: 1;
+    width: 64px;
+    height: 64px;
+  }
+
+  .bottom-header__mark-text {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 380px) {
+  .bottom-header__nav-item {
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+  }
+
+  .bottom-header__text {
+    font-size: 11px;
+  }
+}

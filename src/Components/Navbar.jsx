@@ -5,10 +5,8 @@ import "./Navbar.css";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hideNavbar, setHideNavbar] = useState(false);
 
   const navRef = useRef(null);
-  const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -54,23 +52,7 @@ function Navbar() {
 
   useEffect(() => {
     function updateScrollState() {
-      const currentScrollY = window.scrollY;
-      const delta = currentScrollY - lastScrollY.current;
-      const threshold = 8;
-
-      if (currentScrollY < 40) {
-        setScrolled(false);
-        setHideNavbar(false);
-        lastScrollY.current = currentScrollY;
-      } else {
-        setScrolled(true);
-
-        if (Math.abs(delta) > threshold) {
-          setHideNavbar(delta > 0);
-          lastScrollY.current = currentScrollY;
-        }
-      }
-
+      setScrolled(window.scrollY > 40);
       ticking.current = false;
     }
 
@@ -86,12 +68,7 @@ function Navbar() {
   }, []);
 
   return (
-    <header
-      ref={navRef}
-      className={`navbar ${scrolled ? "scrolled" : ""} ${
-        hideNavbar ? "navbar-hidden" : ""
-      }`}
-    >
+    <header ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
         <nav className="nav-left desktop-nav">
           <Link to="/">Home</Link>

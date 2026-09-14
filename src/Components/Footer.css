@@ -1,0 +1,122 @@
+.site-footer {
+  width: 100%;
+  background: #0a0a0a;
+}
+
+.site-footer__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 48px 60px;
+}
+
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.site-footer__social-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.site-footer__icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.site-footer__icon-link:hover,
+.site-footer__icon-link:focus-visible {
+  border-color: #b9975b;
+  color: #b9975b;
+}
+
+.site-footer__brand {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.site-footer__mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 44px;
+  color: #b9975b;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.site-footer__brand-name {
+  color: #b9975b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.site-footer__tagline {
+  color: rgba(255, 255, 255, 0.55);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+}
+
+.site-footer__copyright {
+  flex: 1;
+  text-align: right;
+}
+
+.site-footer__copyright p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .site-footer__inner {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer__inner {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .site-footer__social {
+    order: 2;
+    justify-content: center;
+  }
+
+  .site-footer__brand {
+    order: 1;
+  }
+
+  .site-footer__copyright {
+    order: 3;
+    text-align: center;
+  }
+}

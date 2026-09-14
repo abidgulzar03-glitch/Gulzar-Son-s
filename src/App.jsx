@@ -9,6 +9,8 @@ import HeroBanner from "./Components/HeroBanner";
 import PortfolioSection from "./Components/PortfolioSection";
 import InstagramFeed from "./Components/InstagramFeed";
 import ContactSection from "./Components/ContactSection";
+import BottomHeader from "./Components/BottomHeader";
+import Footer from "./Components/Footer";
 import Portfolio from "./Pages/Portfolio";
 
 const instagramPosts = [
@@ -55,7 +57,7 @@ function Home() {
       <ContactSection
         name="Gulzar&Son's"
         email="abidgulzar03@gmail.com"
-        backgroundImage="/images/contact-bg.jpg"
+        backgroundImage="/contactbg.jpg"
       />
     </>
   );
@@ -70,6 +72,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
+
+      <BottomHeader monogram="GS" />
+      <Footer monogram="GS" brandName="Gulzar & Son's" />
     </BrowserRouter>
   );
 }
