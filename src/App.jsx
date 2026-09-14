@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
-import AboutSection from "./Components/AboutSection";
 import WhatWeDo from "./Components/WhatWedo";
 import HeroBanner from "./Components/HeroBanner";
 import PortfolioSection from "./Components/PortfolioSection";
@@ -12,6 +14,9 @@ import ContactSection from "./Components/ContactSection";
 import BottomHeader from "./Components/BottomHeader";
 import Footer from "./Components/Footer";
 import Portfolio from "./Pages/Portfolio";
+import About from "./Pages/About";
+import Services from "./Pages/Services";
+import Gallery from "./Pages/Gallery";
 
 const instagramPosts = [
   {
@@ -45,7 +50,6 @@ function Home() {
   return (
     <>
       <Hero />
-      <AboutSection />
       <WhatWeDo />
       <HeroBanner />
       <PortfolioSection />
@@ -64,13 +68,24 @@ function Home() {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 60,
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
 
       <BottomHeader monogram="GS" />

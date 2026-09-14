@@ -12,16 +12,6 @@ function Navbar() {
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
-  const scrollToAbout = (e) => {
-    e.preventDefault();
-    closeMenu();
-
-    const aboutEl = document.getElementById("about");
-    if (aboutEl) {
-      aboutEl.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     function handleClickOutside(e) {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -72,9 +62,7 @@ function Navbar() {
       <div className="container">
         <nav className="nav-left desktop-nav">
           <Link to="/">Home</Link>
-          <a href="#about" onClick={scrollToAbout}>
-            About
-          </a>
+          <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
         </nav>
 
@@ -112,9 +100,9 @@ function Navbar() {
             Home
           </Link>
 
-          <a href="#about" onClick={scrollToAbout}>
+          <Link to="/about" onClick={closeMenu}>
             About
-          </a>
+          </Link>
 
           <Link to="/services" onClick={closeMenu}>
             Services
