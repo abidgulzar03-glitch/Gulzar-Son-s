@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Navbar from "./Components/Navbar";
+import ScrollToTop from "./Components/ScrollToTop";
 import Hero from "./Components/Hero";
 import WhatWeDo from "./Components/WhatWedo";
 import HeroBanner from "./Components/HeroBanner";
@@ -91,6 +92,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <Navbar />
 
       <Routes>
