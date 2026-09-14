@@ -28,7 +28,7 @@ function validateField(name, value) {
 }
 
 export default function ContactSection({
-  email = "abidgulzar03@gmail.com",
+  email = "gulzarzahid28@gmail.com",
   backgroundImage = "/contactbg.jpg",
 }) {
   const [form, setForm] = useState({
@@ -90,7 +90,6 @@ export default function ContactSection({
 
     setSubmitting(true);
 
-  
     const mailBody = `From: ${form.firstName} ${form.lastName} (${form.email})%0D%0A%0D%0A${form.message}`;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(
       form.subject,
