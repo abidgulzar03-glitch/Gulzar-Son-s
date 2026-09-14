@@ -95,7 +95,7 @@ function Contact() {
 
       <ContactSection
         name="Gulzar&Son's"
-        email="abidgulzar03@gmail.com"
+        email="gulzarzahid28@gmail.com"
         backgroundImage="/contactbg.jpg"
       />
     </>

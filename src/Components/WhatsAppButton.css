@@ -1,24 +1,17 @@
-/* =========================================
-   SOCIAL BUTTON CONTAINER
-========================================= */
-
 .social-buttons {
   position: fixed;
-
-  right: 25px;
-  bottom: 25px;
+  right: 24px;
+  bottom: 24px;
 
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   gap: 12px;
 
   z-index: 99999;
-}
 
-/* =========================================
-   COMMON SOCIAL BUTTON
-========================================= */
+  padding-bottom: env(safe-area-inset-bottom);
+}
 
 .social-button {
   position: relative;
@@ -30,111 +23,73 @@
   align-items: center;
   justify-content: center;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
-  color: #ffffff;
-
+  color: #fff;
   text-decoration: none;
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  -webkit-tap-highlight-color: transparent;
 
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-/* =========================================
-   HOVER
-========================================= */
-
 .social-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* =========================================
-   ICON
-========================================= */
+.social-button:active {
+  transform: scale(0.94);
+}
 
 .social-icon {
+  position: relative;
+
   width: 31px;
   height: 31px;
 
-  position: relative;
-
   z-index: 2;
 }
-
-/* =========================================
-   INSTAGRAM
-========================================= */
 
 .instagram-button {
   background: #e1306c;
 }
 
-/* Instagram pulse */
-
-.instagram-pulse {
-  position: absolute;
-
-  inset: 0;
-
-  border-radius: 50%;
-
-  background: #e1306c;
-
-  z-index: -1;
-
-  animation: instagramPulse 2s infinite;
-}
-
-@keyframes instagramPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-
-  70% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* =========================================
-   WHATSAPP
-========================================= */
-
 .whatsapp-button {
   background: #25d366;
 }
 
-/* WhatsApp pulse */
-
+.instagram-pulse,
 .whatsapp-pulse {
   position: absolute;
-
   inset: 0;
 
   border-radius: 50%;
 
-  background: #25d366;
-
   z-index: -1;
-
-  animation: whatsappPulse 2s infinite;
 }
 
-@keyframes whatsappPulse {
+.instagram-pulse {
+  background: #e1306c;
+  animation: socialPulse 2s infinite;
+}
+
+.whatsapp-pulse {
+  background: #25d366;
+  animation: socialPulse 2s infinite;
+}
+
+@keyframes socialPulse {
   0% {
     transform: scale(1);
-    opacity: 0.7;
+    opacity: 0.65;
   }
 
   70% {
@@ -148,14 +103,14 @@
   }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 768px) {
   .social-buttons {
     right: 18px;
-    bottom: 18px;
+    bottom: 20px;
 
     gap: 10px;
   }
@@ -171,32 +126,65 @@
   }
 }
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 480px) {
   .social-buttons {
-    right: 15px;
-    bottom: 15px;
+    right: 14px;
+    bottom: 16px;
 
-    gap: 9px;
+    gap: 8px;
   }
 
   .social-button {
     width: 48px;
     height: 48px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
   }
 
   .social-icon {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .social-button:hover {
+    transform: none;
+  }
+
+  .social-button:active {
+    transform: scale(0.92);
   }
 }
 
-/* =========================================
-   REDUCE MOTION
-========================================= */
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+  .social-buttons {
+    right: 10px;
+    bottom: 12px;
+
+    gap: 7px;
+  }
+
+  .social-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .social-icon {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   .instagram-pulse,
