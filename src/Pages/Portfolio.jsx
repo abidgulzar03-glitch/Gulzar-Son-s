@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./Portfolio.css";
 
 const SERVICES = [
@@ -18,20 +18,11 @@ const IMAGES = Array.from({ length: 50 }, (_, i) => {
     id: num,
     src: `/Portfolio/${num}.jpg`,
     alt: `${SERVICES[i % SERVICES.length]} project ${num}`,
-    category: SERVICES[i % SERVICES.length],
   };
 });
 
-const ALL_FILTER = "All Work";
-
 function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState(ALL_FILTER);
   const [selectedIndex, setSelectedIndex] = useState(null);
-
-  const filteredImages = useMemo(() => {
-    if (activeFilter === ALL_FILTER) return IMAGES;
-    return IMAGES.filter((img) => img.category === activeFilter);
-  }, [activeFilter]);
 
   const openLightbox = useCallback((index) => {
     setSelectedIndex(index);
@@ -43,22 +34,15 @@ function Portfolio() {
 
   const showPrev = useCallback(() => {
     setSelectedIndex((prev) =>
-      prev === null
-        ? null
-        : (prev - 1 + filteredImages.length) % filteredImages.length,
+      prev === null ? null : (prev - 1 + IMAGES.length) % IMAGES.length,
     );
-  }, [filteredImages.length]);
+  }, []);
 
   const showNext = useCallback(() => {
     setSelectedIndex((prev) =>
-      prev === null ? null : (prev + 1) % filteredImages.length,
+      prev === null ? null : (prev + 1) % IMAGES.length,
     );
-  }, [filteredImages.length]);
-
-  // Reset the open image if the filter changes while the lightbox is open
-  // useEffect(() => {
-  //   setSelectedIndex(null);
-  // }, [activeFilter]);
+  }, []);
 
   // Keyboard navigation: Escape to close, arrows to move between images
   useEffect(() => {
@@ -74,8 +58,7 @@ function Portfolio() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, closeLightbox, showPrev, showNext]);
 
-  const selectedImage =
-    selectedIndex !== null ? filteredImages[selectedIndex] : null;
+  const selectedImage = selectedIndex !== null ? IMAGES[selectedIndex] : null;
 
   return (
     <section className="portfolio-gallery-page">
@@ -85,49 +68,17 @@ function Portfolio() {
           Browse our completed carpentry &amp; interior fit-out projects
         </p>
 
-        <div className="gallery-services">
-          <button
-            className={`service-badge filter-badge ${
-              activeFilter === ALL_FILTER ? "active" : ""
-            }`}
-            onClick={() => setActiveFilter(ALL_FILTER)}
-          >
-            {ALL_FILTER}
-          </button>
-          {SERVICES.map((service) => (
-            <button
-              key={service}
-              className={`service-badge filter-badge ${
-                activeFilter === service ? "active" : ""
-              }`}
-              onClick={() => setActiveFilter(service)}
+        <div className="gallery-grid">
+          {IMAGES.map((img, index) => (
+            <div
+              className="gallery-card"
+              key={img.id}
+              onClick={() => openLightbox(index)}
             >
-              {service}
-            </button>
+              <img src={img.src} alt={img.alt} loading="lazy" />
+            </div>
           ))}
         </div>
-
-        <p className="gallery-count">
-          {filteredImages.length} project
-          {filteredImages.length !== 1 ? "s" : ""}
-        </p>
-
-        {filteredImages.length === 0 ? (
-          <p className="gallery-empty">No projects in this category yet.</p>
-        ) : (
-          <div className="gallery-grid">
-            {filteredImages.map((img, index) => (
-              <div
-                className="gallery-card"
-                key={img.id}
-                onClick={() => openLightbox(index)}
-              >
-                <img src={img.src} alt={img.alt} loading="lazy" />
-                <span className="gallery-card-tag">{img.category}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
 
       {selectedImage && (
@@ -170,8 +121,7 @@ function Portfolio() {
           </button>
 
           <div className="lightbox-caption">
-            {selectedImage.category} · {selectedIndex + 1} /{" "}
-            {filteredImages.length}
+            {selectedIndex + 1} / {IMAGES.length}
           </div>
         </div>
       )}

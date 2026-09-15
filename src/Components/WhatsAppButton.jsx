@@ -17,9 +17,6 @@ function WhatsAppButton() {
 
   const buttons = (
     <div className="social-buttons">
-      {/* =================================
-          INSTAGRAM BUTTON
-      ================================= */}
       <a
         href={instagramUrl}
         target="_blank"
@@ -52,9 +49,6 @@ function WhatsAppButton() {
         <span className="instagram-pulse"></span>
       </a>
 
-      {/* =================================
-          WHATSAPP BUTTON
-      ================================= */}
       <a
         href={whatsappUrl}
         target="_blank"
