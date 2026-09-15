@@ -49,12 +49,15 @@ const process = [
 function Services() {
   return (
     <main className="services-page">
+      {/* Hero */}
       <section className="services-hero">
-        <div className="services-hero-inner">
+        <div className="services-hero-inner" data-aos="fade-up">
           <p className="services-eyebrow">What we do</p>
+
           <h1>
             Woodwork, <span>made to fit.</span>
           </h1>
+
           <p className="services-lead">
             From a single custom piece to a full kitchen, every job starts with
             your space and ends with something built to last in it.
@@ -62,13 +65,20 @@ function Services() {
         </div>
       </section>
 
+      {/* Services */}
       <section className="services-list">
         <div className="services-list-inner">
-          {services.map((s) => (
-            <div className="service-card" key={s.title}>
+          {services.map((s, index) => (
+            <div
+              className="service-card"
+              key={s.title}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+              data-aos-delay={index * 100}
+            >
               <div className="service-image">
                 <img src={s.image} alt={s.title} />
               </div>
+
               <div className="service-text">
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
@@ -78,12 +88,19 @@ function Services() {
         </div>
       </section>
 
+      {/* Process */}
       <section className="services-process">
         <div className="services-process-inner">
-          <h2>How a project runs</h2>
+          <h2 data-aos="fade-up">How a project runs</h2>
+
           <div className="process-grid">
-            {process.map((p) => (
-              <div className="process-step" key={p.step}>
+            {process.map((p, index) => (
+              <div
+                className="process-step"
+                key={p.step}
+                data-aos="zoom-in"
+                data-aos-delay={index * 150}
+              >
                 <span className="step-num">{p.step}</span>
                 <h3>{p.title}</h3>
                 <p>{p.text}</p>
@@ -93,10 +110,13 @@ function Services() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="services-cta">
-        <div className="services-cta-inner">
+        <div className="services-cta-inner" data-aos="fade-up">
           <h2>Ready to start?</h2>
+
           <p>Tell us what you need built, and we'll take it from there.</p>
+
           <a href="/contact" className="services-cta-button">
             Get in touch
           </a>

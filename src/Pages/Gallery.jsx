@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Gallery.css";
 
 const categories = ["All", "Kitchens", "Wardrobes", "Furniture", "Restoration"];
@@ -20,6 +22,7 @@ const galleryItems = [
   { src: "/Portfolio/68.jpg", category: "Kitchens" },
   { src: "/Portfolio/69.jpg", category: "Kitchens" },
   { src: "/Portfolio/70.jpg", category: "Kitchens" },
+
   { src: "/Fitted Wardrobes.jpg", category: "Wardrobes" },
   { src: "/Portfolio/2.jpg", category: "Wardrobes" },
   { src: "/Portfolio/50.jpg", category: "Wardrobes" },
@@ -31,7 +34,6 @@ const galleryItems = [
   { src: "/Portfolio/55.jpg", category: "Wardrobes" },
   { src: "/Portfolio/56.jpg", category: "Wardrobes" },
   { src: "/Portfolio/57.jpg", category: "Wardrobes" },
-  { src: "/Portfolio/59.jpg", category: "Wardrobes" },
   { src: "/Portfolio/58.jpg", category: "Wardrobes" },
   { src: "/Portfolio/59.jpg", category: "Wardrobes" },
   { src: "/Portfolio/60.jpg", category: "Wardrobes" },
@@ -40,6 +42,7 @@ const galleryItems = [
   { src: "/Portfolio/63.jpg", category: "Wardrobes" },
   { src: "/Portfolio/64.jpg", category: "Wardrobes" },
   { src: "/Portfolio/65.jpg", category: "Wardrobes" },
+
   { src: "/Portfolio/71.jpg", category: "Furniture" },
   { src: "/Portfolio/72.jpg", category: "Furniture" },
   { src: "/Portfolio/73.jpg", category: "Furniture" },
@@ -49,7 +52,6 @@ const galleryItems = [
   { src: "/Portfolio/77.jpg", category: "Furniture" },
   { src: "/Portfolio/78.jpg", category: "Furniture" },
   { src: "/Portfolio/79.jpg", category: "Furniture" },
-  { src: "/Portfolio/78.jpg", category: "Furniture" },
   { src: "/Portfolio/81.jpg", category: "Furniture" },
   { src: "/Portfolio/82.jpg", category: "Furniture" },
   { src: "/Portfolio/83.jpg", category: "Furniture" },
@@ -69,8 +71,8 @@ const galleryItems = [
   { src: "/Portfolio/94.jpg", category: "Restoration" },
   { src: "/Portfolio/95.jpg", category: "Restoration" },
   { src: "/Portfolio/96.jpg", category: "Restoration" },
-  { src: "/Portfolio/98.jpg", category: "Restoration" },
   { src: "/Portfolio/97.jpg", category: "Restoration" },
+  { src: "/Portfolio/98.jpg", category: "Restoration" },
   { src: "/Portfolio/99.jpg", category: "Restoration" },
   { src: "/Portfolio/100.jpg", category: "Restoration" },
   { src: "/Portfolio/101.jpg", category: "Restoration" },
@@ -81,6 +83,14 @@ const galleryItems = [
 function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   const filtered = useMemo(() => {
     return activeCategory === "All"
@@ -124,11 +134,13 @@ function Gallery() {
   return (
     <main className="gallery-page">
       <section className="gallery-hero">
-        <div className="gallery-hero-inner">
+        <div className="gallery-hero-inner" data-aos="fade-up">
           <p className="gallery-eyebrow">A CLOSER LOOK</p>
+
           <h1>
             Finished Work, <span>In The Wood.</span>
           </h1>
+
           <p className="gallery-lead">
             Explore our completed kitchens, wardrobes, custom furniture and
             restoration projects.
@@ -138,7 +150,7 @@ function Gallery() {
 
       <section className="gallery-body">
         <div className="gallery-body-inner">
-          <div className="gallery-filters">
+          <div className="gallery-filters" data-aos="fade-up">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -158,6 +170,8 @@ function Gallery() {
                 key={`${item.src}-${index}`}
                 className="gallery-tile"
                 onClick={() => openLightbox(index)}
+                data-aos="fade-up"
+                data-aos-delay={(index % 8) * 60}
               >
                 <img src={item.src} alt={item.category} loading="lazy" />
                 <span className="tile-label">{item.category}</span>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+
 import "./Portfolio.css";
 
 const SERVICES = [
@@ -44,7 +45,7 @@ function Portfolio() {
     );
   }, []);
 
-  // Keyboard navigation: Escape to close, arrows to move between images
+  // Keyboard navigation
   useEffect(() => {
     if (selectedIndex === null) return;
 
@@ -63,10 +64,12 @@ function Portfolio() {
   return (
     <section className="portfolio-gallery-page">
       <div className="gallery-container">
-        <h1 className="gallery-title">Our Portfolio</h1>
-        <p className="gallery-subtitle">
-          Browse our completed carpentry &amp; interior fit-out projects
-        </p>
+        <div data-aos="fade-up">
+          <h1 className="gallery-title">Our Portfolio</h1>
+          <p className="gallery-subtitle">
+            Browse our completed carpentry & interior fit-out projects
+          </p>
+        </div>
 
         <div className="gallery-grid">
           {IMAGES.map((img, index) => (
@@ -74,6 +77,8 @@ function Portfolio() {
               className="gallery-card"
               key={img.id}
               onClick={() => openLightbox(index)}
+              data-aos="fade-up"
+              data-aos-delay={(index % 12) * 50}
             >
               <img src={img.src} alt={img.alt} loading="lazy" />
             </div>
