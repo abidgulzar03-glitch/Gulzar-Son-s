@@ -16,19 +16,25 @@ export default function InstagramFeed() {
   return (
     <section className="ig-feed">
       <div className="ig-feed__header">
-        <div className="ig-feed__logo">
+        <div className="ig-feed__logo" data-aos="zoom-in">
           <InstagramIcon />
         </div>
 
-        <p className="ig-feed__label">FOLLOW US ON INSTAGRAM</p>
+        <p className="ig-feed__label" data-aos="zoom-in" data-aos-delay="100">
+          FOLLOW US ON INSTAGRAM
+        </p>
 
-        <h2 className="ig-feed__name">@i_am_zahidgulzar</h2>
+        <h2 className="ig-feed__name" data-aos="zoom-in" data-aos-delay="200">
+          @i_am_zahidgulzar
+        </h2>
 
         <a
           href="https://www.instagram.com/i_am_zahidgulzar/"
           target="_blank"
           rel="noreferrer"
           className="ig-feed__btn"
+          data-aos="zoom-in"
+          data-aos-delay="200"
         >
           View Profile
         </a>
@@ -39,36 +45,48 @@ export default function InstagramFeed() {
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/p/DcBktiSJ0Nc/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="0"
         />
 
         <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/DbyH3vdJxSJ/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="100"
         />
 
         <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/Dbn43lTJDYd/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="200"
         />
 
         <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/DbUcI6BJ-Q2/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="0"
         />
 
         <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/DaS6c_6pHf2/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="100"
         />
 
         <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/Dcv2G8UpFPi/"
           data-instgrm-version="14"
+          data-aos="zoom-in"
+          data-aos-delay="200"
         />
       </div>
     </section>
