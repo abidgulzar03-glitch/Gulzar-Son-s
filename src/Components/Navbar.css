@@ -149,8 +149,8 @@
 .brand-name {
   font-family: "Playfair Display", Georgia, serif;
 
-  font-size: 24px;
-  letter-spacing: 3px;
+  font-size: 20px;
+  letter-spacing: -1px;
 
   color: #b08d3f;
 
@@ -163,7 +163,7 @@
   font-size: 14px;
 }
 
-/* Tagline */
+
 
 .brand-tagline {
   font-family: Georgia, serif;
@@ -188,9 +188,7 @@
   margin-top: 0;
 }
 
-/* ========================================
-   MOBILE MENU BUTTON
-======================================== */
+
 
 .menu-toggle {
   display: none;

@@ -77,21 +77,19 @@ function Navbar() {
   return (
     <header ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
-        {/* Desktop Left Navigation */}
         <nav className="nav-left desktop-nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
         </nav>
 
-        {/* Brand */}
         <Link to="/" className="brand" onClick={closeMenu}>
           <div className="monogram">
             <span className="g">G</span>
             <span className="s">S</span>
           </div>
 
-          <div className="brand-name">Gulzar &amp; Sons</div>
+          <div className="brand-name">Gulzar &amp; Son's</div>
 
           <div className="brand-tagline">w o o d w o r k</div>
         </Link>
