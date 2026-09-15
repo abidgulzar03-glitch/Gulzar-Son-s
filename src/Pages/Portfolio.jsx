@@ -12,7 +12,7 @@ const SERVICES = [
   "Shop Design & Fit-outs",
 ];
 
-const IMAGES = Array.from({ length: 50 }, (_, i) => {
+const IMAGES = Array.from({ length: 103 }, (_, i) => {
   const num = i + 1;
   return {
     id: num,

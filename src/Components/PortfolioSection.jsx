@@ -7,15 +7,15 @@ function PortfolioSection() {
       <div className="portfolio-container">
         <div className="portfolio-grid">
           <div className="portfolio-card">
-            <img src="/portfolio-commercial3.jpg" alt="Portfolio project" />
+            <img src="/Portfolio/1.jpg" alt="Portfolio project" />
           </div>
 
           <div className="portfolio-card">
-            <img src="/portfolio-commercial.jpg" alt="Portfolio project" />
+            <img src="/Portfolio/2.jpg" alt="Portfolio project" />
           </div>
 
           <div className="portfolio-card">
-            <img src="/portfolio-commercial2.jpg" alt="Portfolio project" />
+            <img src="/Portfolio/14.jpg" alt="Portfolio project" />
           </div>
         </div>
 
