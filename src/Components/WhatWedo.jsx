@@ -8,13 +8,13 @@ function WhatWeDo() {
         <div className="wwd-images">
           <img
             className="wwd-image wwd-image-back"
-            src="/Whatwedoimg.png"
+            src="Whatwedoi1mg.jpg"
             alt="Wood-paneled hallway with warm lighting"
             data-aos="fade-right"
           />
           <img
             className="wwd-image wwd-image-front"
-            src="/Whatwedoi1mg.jpg"
+            src="/Whatwedoimg2.png"
             alt="Custom glass and wood shower enclosure"
             data-aos="fade-left"
             data-aos-delay="150"
