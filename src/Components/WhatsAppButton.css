@@ -1,198 +1,146 @@
+/* =========================================================
+   Floating Social Buttons (WhatsApp + Instagram)
+   ========================================================= */
+
 .social-buttons {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-
-  z-index: 99999;
-
-  padding-bottom: env(safe-area-inset-bottom);
+  gap: 14px;
+  /* Prevent iOS/Android from letting the browser chrome
+     shift these on scroll/resize */
+  transform: translateZ(0);
 }
 
 .social-button {
   position: relative;
-
-  width: 58px;
-  height: 58px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  flex-shrink: 0;
-
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
   border-radius: 50%;
-
   color: #fff;
   text-decoration: none;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-
-  -webkit-tap-highlight-color: transparent;
-
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .social-button:hover {
   transform: scale(1.08);
-
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-}
-
-.social-button:active {
-  transform: scale(0.94);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
 }
 
 .social-icon {
-  position: relative;
-
-  width: 31px;
-  height: 31px;
-
-  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
 }
 
-.instagram-button {
-  background: #e1306c;
-}
-
+/* ---------- WhatsApp ---------- */
 .whatsapp-button {
   background: #25d366;
 }
 
-.instagram-pulse,
-.whatsapp-pulse {
+/* ---------- Instagram ---------- */
+.instagram-button {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+/* =========================================================
+   Pulse animations
+   - Only transform (scale) + opacity are animated so the
+     pulse never affects layout / triggers reflow, which is
+     what usually causes icons to "settle" late on mobile.
+   ========================================================= */
+
+.whatsapp-pulse,
+.instagram-pulse {
   position: absolute;
-  inset: 0;
-
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  pointer-events: none;
+  /* start already in final layout position, animation
+     only scales/fades — no jump on first paint */
+  transform: scale(1);
+  opacity: 0;
+}
 
-  z-index: -1;
+.whatsapp-pulse {
+  background: rgba(37, 211, 102, 0.6);
+  animation: pulse-ring 2s ease-out infinite;
 }
 
 .instagram-pulse {
-  background: #e1306c;
-  animation: socialPulse 2s infinite;
+  background: rgba(214, 36, 159, 0.5);
+  animation: pulse-ring 2s ease-out infinite;
+  animation-delay: 0.4s;
 }
 
-.whatsapp-pulse {
-  background: #25d366;
-  animation: socialPulse 2s infinite;
-}
-
-@keyframes socialPulse {
+@keyframes pulse-ring {
   0% {
     transform: scale(1);
-    opacity: 0.65;
+    opacity: 0.55;
   }
-
-  70% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-
   100% {
-    transform: scale(1.5);
+    transform: scale(1.8);
     opacity: 0;
   }
 }
 
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   Responsive
+   ========================================================= */
 
-@media (max-width: 768px) {
-  .social-buttons {
-    right: 18px;
-    bottom: 20px;
-
-    gap: 10px;
-  }
-
-  .social-button {
-    width: 52px;
-    height: 52px;
-  }
-
-  .social-icon {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .social-buttons {
     right: 14px;
-    bottom: 16px;
-
-    gap: 8px;
+    bottom: 14px;
+    gap: 10px;
   }
 
   .social-button {
     width: 48px;
     height: 48px;
-
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    min-width: 48px;
+    min-height: 48px;
   }
 
   .social-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .social-button:hover {
-    transform: none;
-  }
-
-  .social-button:active {
-    transform: scale(0.92);
+    width: 24px;
+    height: 24px;
   }
 }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
-
-@media (max-width: 360px) {
+/* Respect safe areas on notched devices so buttons don't
+   sit under the home-bar / get clipped */
+@supports (bottom: env(safe-area-inset-bottom)) {
   .social-buttons {
-    right: 10px;
-    bottom: 12px;
-
-    gap: 7px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
   }
 
-  .social-button {
-    width: 44px;
-    height: 44px;
-  }
-
-  .social-icon {
-    width: 23px;
-    height: 23px;
-  }
-}
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .instagram-pulse,
-  .whatsapp-pulse {
-    animation: none;
-  }
-
-  .social-button {
-    transition: none;
+  @media (max-width: 700px) {
+    .social-buttons {
+      bottom: calc(14px + env(safe-area-inset-bottom));
+    }
   }
 }

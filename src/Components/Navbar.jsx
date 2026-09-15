@@ -9,9 +9,15 @@ function Navbar() {
   const navRef = useRef(null);
   const ticking = useRef(false);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Close menu when clicking outside navbar
   useEffect(() => {
     function handleClickOutside(e) {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -20,13 +26,18 @@ function Navbar() {
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       const scrollBarWidth =
         window.innerWidth - document.documentElement.clientWidth;
+
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = `${scrollBarWidth}px`;
     } else {
@@ -40,6 +51,7 @@ function Navbar() {
     };
   }, [isOpen]);
 
+  // Navbar scroll effect
   useEffect(() => {
     function updateScrollState() {
       setScrolled(window.scrollY > 40);
@@ -53,19 +65,26 @@ function Navbar() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <header ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
+        {/* Desktop Left Navigation */}
         <nav className="nav-left desktop-nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
         </nav>
 
+        {/* Brand */}
         <Link to="/" className="brand" onClick={closeMenu}>
           <div className="monogram">
             <span className="g">G</span>
@@ -73,19 +92,23 @@ function Navbar() {
           </div>
 
           <div className="brand-name">Gulzar &amp; Sons</div>
+
           <div className="brand-tagline">w o o d w o r k</div>
         </Link>
 
+        {/* Desktop Right Navigation */}
         <nav className="nav-right desktop-nav">
           <Link to="/portfolio">Portfolio</Link>
           <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact</Link>
         </nav>
 
+        {/* Mobile Hamburger / Close Button */}
         <button
+          type="button"
           className={`menu-toggle ${isOpen ? "open" : ""}`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
           <span></span>
@@ -94,6 +117,7 @@ function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       <div className={`mobile-nav ${isOpen ? "active" : ""}`}>
         <nav>
           <Link to="/" onClick={closeMenu}>
@@ -122,6 +146,7 @@ function Navbar() {
         </nav>
       </div>
 
+      {/* Overlay */}
       <div
         className={`mobile-overlay ${isOpen ? "active" : ""}`}
         onClick={closeMenu}

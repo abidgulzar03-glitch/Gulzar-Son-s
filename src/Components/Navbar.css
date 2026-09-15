@@ -2,36 +2,52 @@
   box-sizing: border-box;
 }
 
+/* ========================================
+   NAVBAR
+======================================== */
+
 .navbar {
   position: sticky;
   top: 0;
+  width: 100%;
   background: #fff;
   padding: 14px 0;
   border-bottom: 1px solid #ddd;
-  z-index: 1000;
+
+  /* IMPORTANT */
+  z-index: 10000;
+
   transition:
     padding 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    border-color 0.3s ease;
 }
 
 .navbar.scrolled {
   padding: 4px 0;
-
   box-shadow: none;
 }
+
+/* ========================================
+   CONTAINER
+======================================== */
 
 .container {
   width: 90%;
   max-width: 1300px;
   margin: auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   position: relative;
 }
+
+/* ========================================
+   DESKTOP NAVIGATION
+======================================== */
 
 .nav-left,
 .nav-right {
@@ -48,17 +64,18 @@
 .nav-right a {
   text-decoration: none;
   color: #1a1a1a;
+
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  transition: font-size 0.3s ease;
-}
 
-.navbar.scrolled .nav-left a,
-.navbar.scrolled .nav-right a {
-  font-size: 12px;
+  text-transform: uppercase;
+
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+
+  transition:
+    color 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .nav-left a:hover,
@@ -66,14 +83,28 @@
   color: #a8842f;
 }
 
-/* Center brand */
+.navbar.scrolled .nav-left a,
+.navbar.scrolled .nav-right a {
+  font-size: 12px;
+}
+
+/* ========================================
+   BRAND
+======================================== */
+
 .brand {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   text-decoration: none;
+
   padding: 0 30px;
-  z-index: 1001;
+
+  /* Keep brand above menu */
+  position: relative;
+  z-index: 10001;
+
   transition:
     padding 0.3s ease,
     transform 0.3s ease;
@@ -83,16 +114,25 @@
   padding: 0 16px;
 }
 
+/* Monogram */
+
 .monogram {
   display: flex;
+
   font-family: "Playfair Display", Georgia, serif;
+
   font-size: 52px;
   line-height: 1;
+
   color: #b08d3f;
+
   background: linear-gradient(180deg, #d9b866, #a17c2e);
+
   -webkit-background-clip: text;
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   transition: font-size 0.3s ease;
 }
 
@@ -104,12 +144,18 @@
   margin-right: -6px;
 }
 
+/* Brand name */
+
 .brand-name {
   font-family: "Playfair Display", Georgia, serif;
+
   font-size: 24px;
   letter-spacing: 3px;
+
   color: #b08d3f;
+
   margin-top: 2px;
+
   transition: font-size 0.3s ease;
 }
 
@@ -117,51 +163,79 @@
   font-size: 14px;
 }
 
+/* Tagline */
+
 .brand-tagline {
   font-family: Georgia, serif;
+
   font-style: italic;
+
   font-size: 12px;
   letter-spacing: 4px;
+
   color: #999;
+
   margin-top: 2px;
+
   transition:
     font-size 0.3s ease,
     opacity 0.3s ease;
 }
 
 .navbar.scrolled .brand-tagline {
-  font-size: 0px;
+  font-size: 0;
   opacity: 0;
   margin-top: 0;
 }
 
-/* Hamburger toggle - hidden on desktop */
+/* ========================================
+   MOBILE MENU BUTTON
+======================================== */
+
 .menu-toggle {
   display: none;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   gap: 5px;
+
   width: 40px;
   height: 40px;
+
   background: transparent;
+
   border: none;
+
   cursor: pointer;
-  z-index: 1001;
+
   padding: 0;
+
+  /* VERY IMPORTANT */
+  position: relative;
+  z-index: 10002;
 }
 
 .menu-toggle span {
   display: block;
+
   width: 25px;
   height: 2.5px;
+
   background: #1a1a1a;
+
   border-radius: 2px;
+
   transition:
     transform 0.3s ease,
     opacity 0.3s ease,
     background 0.3s ease;
 }
+
+/* ========================================
+   HAMBURGER → X
+======================================== */
 
 .menu-toggle.open span:nth-child(1) {
   transform: translateY(7.5px) rotate(45deg);
@@ -177,18 +251,30 @@
   background: #a8842f;
 }
 
-/* Mobile nav panel */
+/* ========================================
+   MOBILE NAV
+======================================== */
+
 .mobile-nav {
   position: fixed;
+
   top: 0;
   right: -100%;
+
   width: 78%;
   max-width: 340px;
+
   height: 100vh;
+
   background: #fdfaf3;
+
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+
   transition: right 0.35s ease;
-  z-index: 1000;
+
+  /* Below navbar/button */
+  z-index: 9995;
+
   padding-top: 100px;
 }
 
@@ -198,20 +284,31 @@
 
 .mobile-nav nav {
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
+
   padding: 0 32px;
 }
 
 .mobile-nav a {
   text-decoration: none;
+
   color: #1a1a1a;
+
   font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+
   font-size: 17px;
+
   letter-spacing: 0.5px;
+
   text-transform: uppercase;
+
   padding: 16px 0;
+
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
   transition:
     color 0.2s ease,
     padding-left 0.2s ease;
@@ -222,20 +319,30 @@
   padding-left: 8px;
 }
 
-/* Overlay backdrop */
+/* ========================================
+   OVERLAY
+======================================== */
+
 .mobile-overlay {
   position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100vh;
+
   background: rgba(0, 0, 0, 0.45);
+
   opacity: 0;
   visibility: hidden;
+
   transition:
     opacity 0.35s ease,
     visibility 0.35s ease;
-  z-index: 999;
+
+  /* Below menu */
+  z-index: 9990;
 }
 
 .mobile-overlay.active {
@@ -243,22 +350,31 @@
   visibility: visible;
 }
 
-/* Responsive breakpoint */
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 860px) {
   .desktop-nav {
     display: none;
   }
 
+  /* Show hamburger */
   .menu-toggle {
     display: flex;
-    order: 2; /* Right side */
+    order: 2;
   }
 
+  /* Brand left */
   .brand {
-    position: static; /* Remove absolute center */
+    position: static;
+
     transform: none;
+
     padding: 0;
-    order: 1; /* Left side */
+
+    order: 1;
+
     align-items: flex-start;
   }
 
@@ -283,5 +399,41 @@
   .brand-tagline {
     font-size: 9px;
     letter-spacing: 3px;
+  }
+}
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+  }
+
+  .monogram {
+    font-size: 34px;
+  }
+
+  .navbar.scrolled .monogram {
+    font-size: 28px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
+  .brand-tagline {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .mobile-nav {
+    width: 82%;
+  }
+
+  .mobile-nav nav {
+    padding: 0 24px;
   }
 }
