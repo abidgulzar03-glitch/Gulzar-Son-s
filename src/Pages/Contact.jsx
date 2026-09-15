@@ -1,7 +1,6 @@
 import ContactSection from "../Components/ContactSection";
 import "./Contact.css";
 
-// TODO: replace these placeholders with your real business details
 const CONTACT_DETAILS = [
   {
     icon: "📞",
@@ -12,8 +11,8 @@ const CONTACT_DETAILS = [
   {
     icon: "✉️",
     label: "Email",
-    value: "abidgulzar03@gmail.com",
-    href: "mailto:abidgulzar03@gmail.com",
+    value: "gulzarzahid28@gmail.com",
+    href: "mailto:gulzarzahid28@gmail.com",
   },
   {
     icon: "📍",
