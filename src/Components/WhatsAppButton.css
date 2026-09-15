@@ -4,16 +4,17 @@
 
 .social-buttons {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 16px;
+  bottom: 16px;
   z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  /* Prevent iOS/Android from letting the browser chrome
-     shift these on scroll/resize */
-  transform: translateZ(0);
+  /* Clamp so it can never sit closer to the edge than 16px,
+     even with a notch / gesture bar eating into safe area */
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
 }
 
 .social-button {
@@ -113,8 +114,8 @@
 
 @media (max-width: 700px) {
   .social-buttons {
-    right: 14px;
-    bottom: 14px;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
     gap: 10px;
   }
 
@@ -128,19 +129,5 @@
   .social-icon {
     width: 24px;
     height: 24px;
-  }
-}
-
-/* Respect safe areas on notched devices so buttons don't
-   sit under the home-bar / get clipped */
-@supports (bottom: env(safe-area-inset-bottom)) {
-  .social-buttons {
-    bottom: calc(20px + env(safe-area-inset-bottom));
-  }
-
-  @media (max-width: 700px) {
-    .social-buttons {
-      bottom: calc(14px + env(safe-area-inset-bottom));
-    }
   }
 }
